@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require ("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -12,7 +12,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 const db = "blogDB"
-const url = "mongodb+srv://admin-imran:imran1234@cluster0.v3inl.mongodb.net/"+db+"?retryWrites=true&w=majority";
+const url = "mongodb+srv://"+process.env.ADMIN_USER_PASS+"@cluster0.v3inl.mongodb.net/"+db+"?retryWrites=true&w=majority";
 mongoose.connect(url, {useNewUrlParser: true});
 
 app.set('view engine', 'ejs');
